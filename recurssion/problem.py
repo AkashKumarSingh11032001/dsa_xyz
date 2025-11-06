@@ -68,6 +68,16 @@ class LectureTwo:
         return LectureTwo.string_palindrom(i+1, str, n)
 
 
+class LectureThree:
+    @staticmethod
+    def nth_fibonacci(n):
+        # base cond.
+        if n == 0 or n == 1:
+            return n
+
+        return LectureThree.nth_fibonacci(n-1) + LectureThree.nth_fibonacci(n-2)
+
+
 def main():
     # LectureOne.print_name_n_times('Akash', 5)
     # LectureOne.print_1_to_n(1, 10)
@@ -75,13 +85,15 @@ def main():
     # LectureOne.print_1_to_n_bt(3)
     # LectureOne.print_n_to_1_bt(3)
 
-    print(LectureTwo.sum_of_first_n_num(5))
+    # print(LectureTwo.sum_of_first_n_num(5))
 
-    arr = [1, 2, 3, 4]
-    LectureTwo.reverse_array(i=0, arr=arr, n=4)
-    print(arr)
+    # arr = [1, 2, 3, 4]
+    # LectureTwo.reverse_array(i=0, arr=arr, n=4)
+    # print(arr)
 
-    print(LectureTwo.string_palindrom(i=0, str='madam', n=5))
+    # print(LectureTwo.string_palindrom(i=0, str='madam', n=5))
+
+    print(LectureThree.nth_fibonacci(5))
 
 
 if __name__ == "__main__":
