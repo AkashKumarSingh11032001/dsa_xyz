@@ -78,6 +78,42 @@ class LectureThree:
         return LectureThree.nth_fibonacci(n-1) + LectureThree.nth_fibonacci(n-2)
 
 
+class LeactureFour:
+    # Subsequence: contigeous or non contigeous, which follow the order
+    @staticmethod
+    def print_Subsequence(i, arr, temp, n):
+        # base cond.
+        if i == n:
+            print(temp)
+            return
+
+        # take val
+        temp.append(arr[i])
+        LeactureFour.print_Subsequence(i+1, arr, temp, n)
+        temp.pop()
+
+        # not taking Val
+        LeactureFour.print_Subsequence(i+1, arr, temp, n)
+
+    @staticmethod
+    def print_Subsequence_whoese_sum_n(i, arr, temp, target_sum):
+        n = len(arr)
+
+        # base cond.
+        if i == n:
+            if sum(temp) == target_sum:
+                print(temp)
+            return
+
+        # take val
+        temp.append(arr[i])
+        LeactureFour.print_Subsequence_whoese_sum_n(i+1, arr, temp, target_sum)
+        temp.pop()
+
+        # not take val
+        LeactureFour.print_Subsequence_whoese_sum_n(i+1, arr, temp, target_sum)
+
+
 def main():
     # LectureOne.print_name_n_times('Akash', 5)
     # LectureOne.print_1_to_n(1, 10)
@@ -94,6 +130,10 @@ def main():
     # print(LectureTwo.string_palindrom(i=0, str='madam', n=5))
 
     print(LectureThree.nth_fibonacci(5))
+
+    LeactureFour.print_Subsequence(i=0, arr=[3, 1, 2], temp=[], n=3)
+    LeactureFour.print_Subsequence_whoese_sum_n(
+        i=0, arr=[3, 1, 2], temp=[], target_sum=3)
 
 
 if __name__ == "__main__":
